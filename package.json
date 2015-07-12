@@ -1,0 +1,20 @@
+{
+  "name": "worker.twitter",
+  "version": "0.1.0",
+  "description": "A worker that publishes tlks on twitter on tlks.io",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "tlksio",
+    "twitter",
+    "worker"
+  ],
+  "author": "Raül Pérez <repejota@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "libtlks": "git://github.com/tlksio/libtlks#develop",
+    "twit": "^1.1.20"
+  }
+}
