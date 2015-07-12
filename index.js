@@ -3,8 +3,6 @@ var Twit = require('twit');
 var config = require('./config.json');
 var talks = require('libtlks').talk;
 
-console.log(config.workers.twitter);
-
 var T = new Twit({
     consumer_key: config.twitterConsumerKey,
     consumer_secret: config.twitterConsumerSecret,
@@ -22,13 +20,14 @@ talks.getRandom(config.mongodb, function(err, docs) {
     }
 
     var talk = docs[0];
-
     var tweet = talk.title;
-    var size = tweet.length;
-    tweet = tweet + getUrl(talk);
-    size = size + 23;
+    tweet = tweet + ' ' + getUrl(talk);
 
-    T.post('statuses/update', { status: tweet }, function(err, data, response) {
-          console.log(err);
+    T.post('statuses/update', {
+        status: tweet
+    }, function(err, data, response) {
+        if (err) {
+            console.log(err);
+        }
     });
 });
