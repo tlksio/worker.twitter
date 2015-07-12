@@ -3,11 +3,13 @@ var Twit = require('twit');
 var config = require('./config.json');
 var talks = require('libtlks').talk;
 
+console.log(config.workers.twitter);
+
 var T = new Twit({
-    consumer_key: 'geLmqBbnxszuEZzgB7AaafKiB',
-    consumer_secret: '7CdedM2kEWQ4cG9meth3pK7RPOn16HmE2cnXxW1pCrx0lOUCB6',
-    access_token: '13088482-yWgE087lyZKHMpXMyUk5Plco6PB45mam4t9yAQ9jl',
-    access_token_secret: 'jrEJNxOdLSVTwURfI40TZiIEVKbp49x7zMfewNm7upLfU'
+    consumer_key: config.twitterConsumerKey,
+    consumer_secret: config.twitterConsumerSecret,
+    access_token: config.workers.twitter.token,
+    access_token_secret: config.workers.twitter.secret
 });
 
 function getUrl(talk) {
