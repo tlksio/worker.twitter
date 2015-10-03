@@ -20,8 +20,9 @@ talks.getRandom(config.mongodb, function(err, docs) {
     }
 
     var talk = docs[0];
+    var username = talk.author.username;
     var tweet = talk.title;
-    tweet = tweet + ' ' + getUrl(talk);
+    tweet = tweet + ' ' + getUrl(talk) + ' by @' + username;
 
     T.post('statuses/update', {
         status: tweet
